@@ -9,6 +9,7 @@ import {
   ErrorComponent,
   Layout,
 } from "@pankod/refine-chakra-ui";
+import {ChakraUIInferencer} from "@pankod/refine-inferencer/chakra-ui";
 
 import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
@@ -21,6 +22,15 @@ function App() {
         notificationProvider={notificationProvider()}
         ReadyPage={ReadyPage}
         catchAll={<ErrorComponent />}
+        resources={[
+          {
+            name: "products",
+            list: ChakraUIInferencer,
+            show: ChakraUIInferencer,
+            edit: ChakraUIInferencer,
+            create: ChakraUIInferencer,
+          },
+        ]}
         Layout={Layout}
         routerProvider={routerProvider}
       />
